@@ -1,0 +1,44 @@
+{
+  "name": "eslint-tap",
+  "version": "0.0.0",
+  "description": "TAP formatter (reporter) for ESLint",
+  "keywords": [
+    "eslint",
+    "formatter",
+    "reporter",
+    "lint",
+    "validate",
+    "tap",
+    "test",
+    "protocol"
+  ],
+  "homepage": "https://github.com/sindresorhus/eslint-tap",
+  "bugs": "https://github.com/sindresorhus/eslint-tap/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "files": [
+    "tap.js"
+  ],
+  "main": "tap",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sindresorhus/eslint-tap.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yamlish": "0.0.5"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "eslint": "0.1.0-dev"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
