@@ -28,7 +28,7 @@ eslint --format node_modules/eslint-tap/tap.js file.js
 grunt.initConfig({
 	eslint: {
 		options: {
-			format: 'node_modules/eslint-tap/tap.js'
+			format: require('eslint-tap')
 		},
 		target: ['file.js']
 	}

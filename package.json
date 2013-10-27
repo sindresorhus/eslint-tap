@@ -23,7 +23,6 @@
   "files": [
     "tap.js"
   ],
-  "main": "tap",
   "repository": {
     "type": "git",
     "url": "git://github.com/sindresorhus/eslint-tap.git"
