@@ -1,4 +1,4 @@
-# eslint-tap [![Build Status](https://travis-ci.org/sindresorhus/eslint-tap.png?branch=master)](https://travis-ci.org/sindresorhus/eslint-tap)
+# eslint-tap [![Build Status](https://travis-ci.org/sindresorhus/eslint-tap.svg?branch=master)](https://travis-ci.org/sindresorhus/eslint-tap)
 
 [TAP](http://testanything.org/wiki/index.php/Main_Page) reporter for [ESLint](https://github.com/nzakas/eslint/)
 
