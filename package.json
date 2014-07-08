@@ -12,8 +12,6 @@
     "test",
     "protocol"
   ],
-  "homepage": "https://github.com/sindresorhus/eslint-tap",
-  "bugs": "https://github.com/sindresorhus/eslint-tap/issues",
   "license": "MIT",
   "author": {
     "name": "Sindre Sorhus",
@@ -24,21 +22,18 @@
     "index.js",
     "tap.js"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/sindresorhus/eslint-tap.git"
-  },
+  "repository": "sindresorhus/eslint-tap",
   "scripts": {
-    "test": "mocha"
+    "test": "node test.js"
   },
   "dependencies": {
     "yamlish": "0.0.5"
   },
   "devDependencies": {
-    "mocha": "~1.13.0",
-    "eslint": "0.1.0-dev"
+    "ava": "0.0.3",
+    "eslint": "^0.7.1"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   }
 }

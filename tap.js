@@ -1,29 +1,27 @@
 'use strict';
 var yamlish = require('yamlish');
 
-function getMessageType(message, rules) {
-	if (message.fatal) {
-		return 'error';
-	}
-
-	var severity = rules[message.ruleId][0] || rules[message.ruleId];
-
-	if (severity === 2) {
-		return 'error';
-	}
-
-	return 'warning';
-}
-
-module.exports = function (results, config) {
+module.exports = function (results) {
 	var ret = '\nTAP version 13\n';
 	var total = 0;
 
 	results.forEach(function (result) {
-		ret += result.messages.map(function (el) {
-			return 'not ok ' + ++total + '\n    ---' + yamlish.encode({
+		var messages = result.messages;
+
+		if (messages.length === 0) {
+			return;
+		}
+
+		ret += messages.map(function (el) {
+			var severity = 'warning';
+
+			if (el.fatal || el.severity === 2) {
+				severity = 'error';
+			}
+
+			return 'not ok ' + (++total) + '\n    ---' + yamlish.encode({
 				message: el.message,
-				severity: getMessageType(el, config.rules || {}),
+				severity: severity,
 				file: result.filePath,
 				line: el.line || 0,
 				name: el.ruleId
