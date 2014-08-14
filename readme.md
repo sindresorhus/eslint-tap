@@ -20,8 +20,8 @@ Use it with:
 
 #### ESLint CLI
 
-```
-eslint --format node_modules/eslint-tap/tap.js file.js
+```sh
+$ eslint --format node_modules/eslint-tap/tap.js file.js
 ```
 
 #### [grunt-eslint](https://github.com/sindresorhus/grunt-eslint/)
