@@ -1,4 +1,5 @@
 'use strict';
+var path = require('path');
 var yamlish = require('yamlish');
 
 module.exports = function (results) {
@@ -9,6 +10,7 @@ module.exports = function (results) {
 		var messages = result.messages;
 
 		if (messages.length === 0) {
+			ret += 'ok ' + (++total) + ' ' + path.relative(process.cwd(), result.filePath) + '\n';
 			return;
 		}
 

@@ -7,13 +7,13 @@ test('should be used by ESLint', function (t) {
 	var _log = console.log;
 
 	console.log = function (str) {
-		if (/TAP/.test(str)) {
+		if (/TAP/.test(str) && /ok \d+ clean\.js/.test(str)) {
 			ret = true;
 		}
 	};
 
 	eslint.execute({
-		_: ['tap.js'],
+		_: ['tap.js', 'clean.js'],
 		format: './tap.js'
 	});
 
