@@ -1,9 +1,26 @@
 {
   "name": "eslint-tap",
   "version": "1.1.0",
-  "description": "TAP formatter (reporter) for ESLint",
+  "description": "TAP formatter for ESLint",
+  "license": "MIT",
+  "repository": "sindresorhus/eslint-tap",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "eslint",
+    "eslint-formatter",
     "formatter",
     "reporter",
     "lint",
@@ -12,28 +29,15 @@
     "test",
     "protocol"
   ],
-  "license": "MIT",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
-  },
-  "files": [
-    "index.js",
-    "tap.js"
-  ],
-  "repository": "sindresorhus/eslint-tap",
-  "scripts": {
-    "test": "node test.js"
-  },
   "dependencies": {
     "yamlish": "0.0.7"
   },
   "devDependencies": {
-    "ava": "0.0.3",
-    "eslint": "^0.7.4"
+    "ava": "*",
+    "eslint": "^0.7.4",
+    "xo": "*"
   },
-  "engines": {
-    "node": ">=0.10.0"
+  "xo": {
+    "esnext": true
   }
 }

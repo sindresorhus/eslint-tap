@@ -1,12 +1,11 @@
-'use strict';
-var test = require('ava');
-var eslint = require('eslint').cli;
+import test from 'ava';
+import {cli as eslint} from 'eslint';
 
-test('should be used by ESLint', function (t) {
-	var ret = false;
-	var _log = console.log;
+test(t => {
+	let ret = false;
+	const _log = console.log;
 
-	console.log = function (str) {
+	console.log = str => {
 		if (/TAP/.test(str) && /ok \d+ clean\.js/.test(str)) {
 			ret = true;
 		}
@@ -14,10 +13,10 @@ test('should be used by ESLint', function (t) {
 
 	eslint.execute({
 		_: ['tap.js', 'clean.js'],
-		format: './tap.js'
+		format: './'
 	});
 
 	console.log = _log;
 
-	t.assert(ret);
+	t.truthy(ret);
 });

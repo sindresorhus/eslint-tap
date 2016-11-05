@@ -1,36 +1,34 @@
 # eslint-tap [![Build Status](https://travis-ci.org/sindresorhus/eslint-tap.svg?branch=master)](https://travis-ci.org/sindresorhus/eslint-tap)
 
-[TAP](http://testanything.org) reporter for [ESLint](http://eslint.org)
+[TAP](http://testanything.org) formatter for [ESLint](http://eslint.org)
 
 > TAP, the Test Anything Protocol, is a simple text-based interface between testing modules in a test harness. TAP started life as part of the test harness for Perl but now has implementations in C/C++, Python, PHP, Perl and probably others by the time you read this.
 
-![screenshot](screenshot.png)
+![](screenshot.png)
 
 
 ## Install
 
-```sh
+```
 $ npm install --save-dev eslint-tap
 ```
 
 
-## Getting started
-
-Use it with:
+## Usage
 
 #### ESLint CLI
 
-```sh
-$ eslint --format node_modules/eslint-tap/tap.js file.js
+```
+$ eslint --format=node_modules/eslint-tap file.js
 ```
 
-#### [grunt-eslint](https://github.com/sindresorhus/grunt-eslint/)
+#### [grunt-eslint](https://github.com/sindresorhus/grunt-eslint)
 
 ```js
 grunt.initConfig({
 	eslint: {
 		options: {
-			format: require('eslint-tap')
+			format: 'node_modules/eslint-tap'
 		},
 		target: ['file.js']
 	}
@@ -43,4 +41,4 @@ grunt.registerTask('default', ['eslint']);
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
