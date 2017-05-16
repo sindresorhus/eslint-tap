@@ -2,21 +2,27 @@ import test from 'ava';
 import {cli as eslint} from 'eslint';
 
 test(t => {
-	let ret = false;
+	let ret = 0;
 	const _log = console.log;
 
 	console.log = str => {
-		if (/TAP/.test(str) && /ok \d+ clean\.js/.test(str)) {
-			ret = true;
+		console.error(str);
+
+		if (/TAP/.test(str) && /ok \d+ fixture-clean\.js/.test(str)) {
+			ret += 1;
+		}
+
+		if (str.includes(`  message: '''foo'' is not defined.'`)) {
+			ret += 1;
 		}
 	};
 
 	eslint.execute({
-		_: ['tap.js', 'clean.js'],
+		_: ['tap.js', 'fixture-clean.js', 'fixture-fail.js'],
 		format: './'
 	});
 
 	console.log = _log;
 
-	t.truthy(ret);
+	t.is(ret, 2);
 });

@@ -1,17 +1,18 @@
 'use strict';
 const path = require('path');
-const yamlish = require('yamlish');
+const jsYaml = require('js-yaml');
+const indentString = require('indent-string');
 
 module.exports = results => {
-	let ret = '\nTAP version 13\n';
+	let ret = 'TAP version 13\n';
 	let total = 0;
 
-	results.forEach(result => {
+	for (const result of results) {
 		const messages = result.messages;
 
 		if (messages.length === 0) {
 			ret += `ok ${++total} ` + path.relative(process.cwd(), result.filePath) + '\n';
-			return;
+			continue;
 		}
 
 		ret += messages.map(el => {
@@ -21,15 +22,17 @@ module.exports = results => {
 				severity = 'error';
 			}
 
-			return `not ok ${++total}\n    ---` + yamlish.encode({
+			const block = '---\n' + jsYaml.safeDump({
 				message: el.message,
 				severity,
 				file: result.filePath,
 				line: el.line || 0,
 				name: el.ruleId
-			}) + '\n    ...\n';
+			}) + '...';
+
+			return `not ok ${++total}\n${indentString(block, 2)}`;
 		}).join('\n') + '\n';
-	});
+	}
 
 	ret += `1..${total}`;
 
