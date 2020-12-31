@@ -1,4 +1,4 @@
-# eslint-tap [![Build Status](https://travis-ci.org/sindresorhus/eslint-tap.svg?branch=master)](https://travis-ci.org/sindresorhus/eslint-tap)
+# eslint-tap
 
 [TAP](http://testanything.org) formatter for [ESLint](http://eslint.org)
 
